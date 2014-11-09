@@ -1,0 +1,24 @@
+﻿@if (Request.IsAuthenticated) {
+    <text >
+        <span><a href="~/"><i class="fa fa-home fa-lg"></i></a></span>
+        <span class="DividerLine"></span> @Html.ActionLink("سلام، " + User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display:inline;" }))
+        {
+            @Html.AntiForgeryToken()
+            <span class="DividerLine"></span> <a style="display:inline;" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-unlock fa-lg"></i> خروج</a>
+            <span class="DividerLine"></span> @Html.Partial("_AdminMenuPartial")
+            <span class="DividerLine"></span> <span><a href="#"><i class="fa fa-question-circle fa-lg"></i> راهنمای خرید</a></span>
+            <span class="DividerLine"></span> <span><a href="#"><i class="fa fa-phone-square fa-lg"></i> تماس با ما</a></span>
+        }
+    </text>
+} else {
+    <div>
+        <span><a href="~/"><i class="fa fa-home fa-lg"></i></a></span>
+        <span class="DividerLine"></span> <span><a href="~/Account/Login" id = "loginLink" ><i class="fa fa-lock fa-lg"></i> سلام، به حساب کاربری خود وارد شوید.</a></span>
+        <span class="DividerLine"></span> <span><a href="~/Account/Register" id="registerLink"><i class="fa fa-edit fa-lg"></i> ثبت نام کنید</a></span>
+        <span class="DividerLine"></span> @Html.Partial("_AdminMenuPartial")
+        <span class="DividerLine"></span> <span><a href="#"><i class="fa fa-question-circle fa-lg"></i> راهنمای خرید</a></span>
+        <span class="DividerLine"></span> <span><a href="#"><i class="fa fa-phone-square fa-lg"></i> تماس با ما</a></span>
+        
+    </div>
+}

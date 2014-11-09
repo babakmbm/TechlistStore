@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechlistShop.Domain", "TechlistShop.Domain\TechlistShop.Domain.csproj", "{8AFA1A67-DA21-4CA5-96A7-22576B6A068F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechlistShop.WebUI", "TechlistShop.WebUI\TechlistShop.WebUI.csproj", "{F51628E1-4912-491C-AC83-5777AC78D06A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechlistShop.UnitTests", "TechlistShop.UnitTests\TechlistShop.UnitTests.csproj", "{015F57A2-5BD7-4B1F-834C-0C2F409591A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AFA1A67-DA21-4CA5-96A7-22576B6A068F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AFA1A67-DA21-4CA5-96A7-22576B6A068F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AFA1A67-DA21-4CA5-96A7-22576B6A068F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AFA1A67-DA21-4CA5-96A7-22576B6A068F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51628E1-4912-491C-AC83-5777AC78D06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51628E1-4912-491C-AC83-5777AC78D06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51628E1-4912-491C-AC83-5777AC78D06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51628E1-4912-491C-AC83-5777AC78D06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{015F57A2-5BD7-4B1F-834C-0C2F409591A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015F57A2-5BD7-4B1F-834C-0C2F409591A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015F57A2-5BD7-4B1F-834C-0C2F409591A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015F57A2-5BD7-4B1F-834C-0C2F409591A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

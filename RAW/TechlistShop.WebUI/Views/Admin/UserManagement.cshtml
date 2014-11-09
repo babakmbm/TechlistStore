@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TechlistShop.WebUI.Models.UserProfile>
+
+@{
+    ViewBag.Title = "صفحه ادمین - مدیریت کاربرها";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var roles = (SimpleRoleProvider)Roles.Provider;
+    var memberships = (SimpleMembershipProvider)Membership.Provider;
+}
+<h2><i class="fa fa-users fa-2x"></i>مدیریت کاربران سایت:</h2>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:100px;">@item.UserId</td>
+        <td>
+            @item.UserName
+        </td>
+        @if (item.Email == null) {
+            <td style="text-align:right;">
+                موجود نیست 
+            </td>
+        }
+        else
+        {
+            <td style="text-align:left; font-family:'Times New Roman';">
+                @item.Email
+            </td>
+        }
+    </tr>
+}
+
+</table>
+
+<p style="text-align:left;">
+    @Html.ActionLink("+ یک کاربر جدید اضافه کن", "Register", "Account", null, new { @class = "btn btn-primary"})
+</p>

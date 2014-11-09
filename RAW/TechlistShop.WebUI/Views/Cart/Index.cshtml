@@ -1,0 +1,113 @@
+﻿@model TechlistShop.WebUI.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "سبد خرید";
+    bool empty = ViewBag.emptyFlag;
+}
+
+<style>
+    .sidebar {
+    display:none;
+    }
+
+    #FastLinks {
+        display:none;
+    }
+
+    #content {
+        float:initial;
+        margin:0 auto;
+        background-color:#fff;
+        width: 1050px;
+        min-height: 400px;
+        padding: 10px;
+        padding-bottom:90px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    .table.p {
+        font-weight:bolder; font-size:17px; width: 950px; margin: 20px auto;
+    }
+
+    .btn.p {
+        width:400px; font-size:1.2em; font-weight:bold;
+    }
+</style>
+
+<h2 style="font-family:DastNevis;">سبد خرید شما:</h2>
+<br />
+
+@if(!empty){
+    <table class="table table-bordered table-striped p">
+        <thead>
+            <tr>
+                <th class="text-center">شرح محصول</th>
+                <th class="text-center">تعداد</th>
+                <th class="text-center">جمع کل</th>
+                <th class="text-center">حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cart.Items)
+            {
+                <tr>
+                    <td style="font-size:0.8em; padding-right:25px; text-align:right;">
+                        نام محصول: @item.Product.Name 
+                        @if (item.Product.ImageData != null && item.Product.Category != "فیلم")
+                        {
+                            <div style="float:right; margin-left:20px;">
+                                <img width="100" height="100" src="@Url.Action("GetImage","Product", new{item.Product.ProductID})" alt="@item.Product.Name" />
+                            </div>
+                        }
+                        else if(item.Product.Category == "فیلم")
+                        {
+                            <div style="float:right; margin-left:20px;">
+                                <img width="90" height="130" src="@Url.Action("GetImage","Product", new{item.Product.ProductID})" alt="@item.Product.Name" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="thumbnail" style="float:right; margin-left:20px;">
+                                <img class="img-rounded" width="150" height="120" src="~/Content/Images/No Image.png" />
+                            </div>    
+                        }
+                        <br />
+                        قیمت واحد: @item.Product.Price.ToString("c")
+                    </td>
+                    <td class="text-center" style="padding-top:40px;">@item.Quantity</td>
+                    <td class="text-center" style="padding-top:40px;">@((item.Quantity * item.Product.Price).ToString("c"))</td>
+                    <td class="text-center" style="padding-top:40px;">
+                        @using (Html.BeginForm("RemoveFromCart", "Cart", FormMethod.Post, new { onsubmit = "return confirm('آیا مایل به حذف مورد انتخابی هستید؟');" }))
+                        {
+                            @Html.Hidden("ProductId", item.Product.ProductID)
+                            @Html.HiddenFor(x => x.ReturnUrl)
+                            <button class="btn btn-danger" style="vertical-align:central;"><span class="glyphicon glyphicon-trash"></span></button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan ="3" class="text-right">مبلغ کل:</td>
+                <td colspan="2">@Model.Cart.ComputeValue().ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div style="width: 950px; margin: 20px auto;">
+        <a class="btn btn-success btn-sm pull-left p" href="@Url.Content("~/Cart/ProfileCheck")">اتمام خرید</a>
+        @if (@Model.ReturnUrl == null)
+        {
+            <a class="btn btn-info btn-sm pull-right p" href="~/Product/List">ادامه خرید</a>
+        }
+        else
+        {
+            <a class="btn btn-info btn-sm pull-right p" href="@Model.ReturnUrl">ادامه خرید</a>
+        }
+    </div>
+}
+
+else
+{
+    <h4 style="color:red; font-family:DastNevis; margin:0 auto; width:300px;"><i class="fa fa-ban fa-lg"></i> @ViewBag.Message</h4> 
+}

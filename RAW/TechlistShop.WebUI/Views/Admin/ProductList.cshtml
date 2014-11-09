@@ -1,0 +1,80 @@
+﻿@model IEnumerable<TechlistShop.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "صفحه ادمین - همه محصولات سایت";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2><i class="fa fa-cubes fa-2x"></i> لیست محصولات سایت:</h2>
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Category
+        </td>
+        <td>@item.ProductID</td>
+        <td>
+            @Html.ActionLink(item.Name, "Details", new { item.ProductID })
+        </td>
+        <td>
+            @item.Model
+        </td>
+        <td>
+            @if (item.Availability)
+            {
+                <i class="glyphicon glyphicon-ok-sign" style="color:darkgreen;"></i> <text>موجود</text> 
+            }
+            else
+            {
+               <i class="glyphicon glyphicon-remove-sign" style="color:darkred;"></i> <text>ناموجود</text> 
+            }
+        </td>
+        <td>
+            @item.Quantity عدد
+        </td>
+        <td>
+            @item.DateAdded
+        </td>
+        <td>
+            @item.Price.ToString("c")
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { productId = item.ProductID }) /
+            @Html.ActionLink("حذف", "Delete", new { productId = item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p style="text-align:left;">
+    @Html.ActionLink("+ یک محصول جدید اضافه کن", "Create", "admin", null, new { @class = "btn btn-primary"})
+</p>
+

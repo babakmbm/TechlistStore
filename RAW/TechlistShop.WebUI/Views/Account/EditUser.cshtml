@@ -1,0 +1,69 @@
+﻿@model TechlistShop.WebUI.Models.UserProfile
+
+@{
+    ViewBag.Title = ViewBag.title;
+}
+<div class="profilePageContent">
+    <h2>@ViewBag.title</h2>
+    <hr />
+    @using (Html.BeginForm("EditUser", "Account", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName) @Html.ValidationMessageFor(model => model.FirstName)<br />
+            @Html.TextBoxFor(model => model.FirstName, new {@class = "form-control"})
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName) @Html.ValidationMessageFor(model => model.LastName)<br />
+            @Html.TextBoxFor(model => model.LastName, new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City) @Html.ValidationMessageFor(model => model.City)<br />
+            @Html.TextBoxFor(model => model.City, new {@class = "form-control" })
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.State) @Html.ValidationMessageFor(model => model.State)<br />
+            @Html.TextBoxFor(model => model.State, new {@class = "form-control"})
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address) @Html.ValidationMessageFor(model => model.Address)<br />
+            @Html.TextAreaFor(model => model.Address, new {@class = "form-control", Style="width:265px;"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PostalCode) @Html.ValidationMessageFor(model => model.PostalCode)<br />
+            @Html.TextBoxFor(model => model.PostalCode, new {@class = "form-control"})
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.Country) @Html.ValidationMessageFor(model => model.Country)<br />
+            @Html.TextBoxFor(model => model.Country, new {@class = "form-control"})
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.LandLine) @Html.ValidationMessageFor(model => model.LandLine)<br />
+            @Html.TextBoxFor(model => model.LandLine, new {@class = "form-control"})
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.CellPhone) @Html.ValidationMessageFor(model => model.CellPhone)<br />
+            @Html.TextBoxFor(model => model.CellPhone, new {@class = "form-control"})
+        </div>
+    
+        <p style="text-align:left;">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> ذخیره در پایگاه داده</button>
+        </p>
+    }
+
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

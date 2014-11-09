@@ -1,0 +1,13 @@
+﻿@model TechlistShop.WebUI.Models.ProductListViewModel
+<div id="Adds">
+    @foreach (var A in Model.Adds.OrderBy(x => x.Order))
+    {
+        if(A.ImageData != null && A.Active == true){
+            <div>
+                <a href="@A.LinkUrl" target="_blank">
+                    <img style="width:260px;" src="@Url.Action("GetImage","Add", new{A.AddId})" />    
+                </a>
+            </div>
+        }
+    }
+</div>

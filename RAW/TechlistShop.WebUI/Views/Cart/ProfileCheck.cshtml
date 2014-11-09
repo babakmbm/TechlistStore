@@ -1,0 +1,128 @@
+﻿@model TechlistShop.WebUI.Models.UserProfile
+
+@{
+    ViewBag.Title = "ProfileCheck";
+}
+
+<div class="profilePageContent">
+<h3>اطلاعات کاربری جهت ارسال:</h3>
+<br />
+<table class="table table-hover">
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.UserName):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.UserName)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.FirstName):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.FirstName)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.LastName):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.LastName)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.Email):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.Email)
+        </td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.Address):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.Address)
+        </td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.City):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.City)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.State):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.State)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.PostalCode):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.PostalCode)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.Country):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.Country)
+        </td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.LandLine):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.LandLine)
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td class="display-label">
+             @Html.DisplayNameFor(model => model.CellPhone):
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.CellPhone)
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="3" class="text-left">
+            <a class="btn btn-info btn-sm" style="font-weight:bold; width:100px;" href="~/Account/EditUser">اصلاح اطلاعات</a>
+            <a class="btn btn-primary btn-sm" style="font-weight:bold; width:100px;" href="~/Product/List">ادامه خرید</a>
+            <a class="btn btn-success btn-sm" style="font-weight:bold; width:100px;" href="@Url.Content("~/Cart/Checkout")">اتمام خرید</a>
+        </td>
+    </tr>
+</table>
+</div>

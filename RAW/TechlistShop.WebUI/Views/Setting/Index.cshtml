@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TechlistShop.Domain.Entities.Setting>
+@{
+    ViewBag.Title = "تنظیمات نمایه";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover table-bordered table-striped" style="width:200px; margin:0 auto;">
+    <tr>
+        <td colspan="2" style="color:#45A549; padding:15px 5px; font-size:1.3em;">
+            <i class="fa fa-cog"></i> تنظیمات نمایه
+        </td>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.MCNOPIC)
+        </td>
+        <td>
+            @item.MCNOPIC
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.DISNOPIC)
+        </td>
+        <td>
+            @item.DISNOPIC
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.NOA)
+        </td>
+        <td>
+            @item.NOA
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.LPS)
+        </td>
+        <td>
+            @item.LPS
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model=> model.Description)
+        </td>
+        <td>
+            @item.Description
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model=> model.DateModified)
+        </td>
+        <td>
+            @item.DateModified
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { settingId = item.SettingID })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<hr />
+<p style=" width:600px; margin:0 auto; border-bottom:2px groove; border-top:2px groove; padding:3px 0;">
+    پوزیشن های نمایه:
+</p>
+<br />
+<div class="text-center">
+    <img width="600" src="~/Content/Images/layout.png" />
+</div>

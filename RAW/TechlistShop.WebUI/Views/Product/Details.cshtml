@@ -1,0 +1,81 @@
+﻿<link  href="~/Content/css/ProductDetails.css" type="text/css" rel="stylesheet" />
+@model TechlistShop.Domain.Entities.Product
+@{
+    ViewBag.Title = "جزئیات - "+Model.Name;
+}
+<div id="row1">
+    <div class="productCode">
+        <span>کدکالا:</span><span>@Model.Model</span>
+    </div>
+    <div class="text-left"></div>
+</div>
+<div id="row2">
+    <div class="Pscrollspy clearfix">
+        <ul class="clearfix">
+            <li>مشخصات کلی</li>
+            <li>مشخصات فنی</li>
+            <li>نقد و بررسی</li>
+        </ul>
+    </div>
+</div>
+<div id="row3" class="clearfix">
+    <div class="pGallery">
+        @if (Model.ImageData != null && Model.Category != "فیلم")
+        {
+            <img width="250" height="250" src="@Url.Action("GetImage","Product", new{Model.ProductID})" alt="@Model.Name" />
+        }
+        else if(Model.Category == "فیلم")
+        {
+            <img width="250" height="350" src="@Url.Action("GetImage","Product", new{Model.ProductID})" alt="@Model.Name" />   
+        }
+        else
+        {
+            <img width="250" height="250" src="~/Content/Images/No Image.png" />    
+        }
+        <br />
+        <br />
+        @Html.Partial("_pGallery")
+    </div>
+    <div class="pInfo">
+        <h1>@Model.Name</h1>
+        <div style="font-size:20px;">@Model.Category @Model.Model</div>
+        <br />
+        <div style="margin:20px; padding:15px 10px; border-bottom:1px solid #ccc;">
+            وضعیت:
+            @if (Model.Availability)
+            {
+                <i class="glyphicon glyphicon-ok-sign" style="color:#69A816;"></i> <text>موجود</text> 
+            }
+            else
+            {
+               <i class="glyphicon glyphicon-remove-sign" style="color:darkred;"></i> <text>ناموجود</text> 
+            }
+            <br /><br />
+            <div style="font-size:14px; text-align:justify;">توضیحات: <b>@Model.Description</b></div>
+        </div>
+        <div style="padding:15px 30px;">
+            <div id="price">قیمت: 
+                <span style="color:#69A816; font-size:1.5em;font-weight:bold;">@Model.Price ریال</span>
+            </div><br />
+            <div class="text-left">
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    @Html.HiddenFor(x=>x.ProductID)
+
+                    @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+                    if(Model.Availability != true || Model.Quantity <= 0){
+                        <button type="submit" class="btn btn-default" disabled="disabled">
+                            <i class="fa fa-plus"></i> <b>اضافه کردن به سبد خرید</b>
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-plus"></i> <b>اضافه کردن به سبد خرید</b>
+                        </button>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

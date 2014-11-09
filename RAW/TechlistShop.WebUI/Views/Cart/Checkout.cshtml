@@ -1,0 +1,74 @@
+﻿@model TechlistShop.WebUI.Models.CheckOutViewModel
+
+@{
+    ViewBag.Title = "تک لیست: اتمام خرید";
+    var username = @User.Identity.Name;
+}
+
+<h4>لطفا مشخصات خود را برای ارسال محصولات وارد نمایید:</h4>
+
+@using (Html.BeginForm("Checkout","Cart",FormMethod.Post, new { @role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.Name) @Html.ValidationMessageFor(model => model.ShippingDetails.Name)<br />
+        @Html.TextBoxFor(model => model.ShippingDetails.Name, new {@class="form-control", @Value= @username})
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.AddLine1) @Html.ValidationMessageFor(model => model.ShippingDetails.AddLine1)<br />
+        @Html.TextBoxFor(model => model.ShippingDetails.AddLine1, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.AddLine2) @Html.ValidationMessageFor(model => model.ShippingDetails.AddLine2)<br />
+        @Html.TextBoxFor(model => model.ShippingDetails.AddLine2, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.AddLine3) @Html.ValidationMessageFor(model => model.ShippingDetails.AddLine3)<br /> 
+        @Html.TextBoxFor(model => model.ShippingDetails.AddLine3, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.City) @Html.ValidationMessageFor(model => model.ShippingDetails.City)<br /> 
+        @Html.TextBoxFor(model => model.ShippingDetails.City, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.State) @Html.ValidationMessageFor(model => model.ShippingDetails.State)<br /> 
+        @Html.TextBoxFor(model => model.ShippingDetails.State, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.Zip) @Html.ValidationMessageFor(model => model.ShippingDetails.Zip)<br /> 
+        @Html.TextBoxFor(model => model.ShippingDetails.Zip, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.Country) @Html.ValidationMessageFor(model => model.ShippingDetails.Country)<br /> 
+        @Html.TextBoxFor(model => model.ShippingDetails.Country, new {@class="form-control" })
+    </div>
+    <br />
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ShippingDetails.GiftWrap) @Html.EditorFor(model => model.ShippingDetails.GiftWrap)
+    </div>
+
+    <p style="width:50%; margin:0 auto;">
+        <button type="submit" class="btn btn-primary btn-block" style="font-weight:bold;">انتقال به بانک جهت پرداخت</button>
+    </p>
+    <br />
+}
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -1,0 +1,8 @@
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\bin\Debug\TechlistShop.Domain.dll
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\bin\Debug\TechlistShop.Domain.pdb
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\obj\Debug\TechlistShop.Domain.csprojResolveAssemblyReference.cache
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\obj\Debug\TechlistShop.Domain.dll
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\obj\Debug\TechlistShop.Domain.pdb
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\bin\Debug\TechlistShop.Domain.dll.config
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\bin\Debug\EntityFramework.dll
+C:\Users\MBM\Documents\MVC 4 Book\TechlistShop\TechlistShop.Domain\bin\Debug\EntityFramework.xml

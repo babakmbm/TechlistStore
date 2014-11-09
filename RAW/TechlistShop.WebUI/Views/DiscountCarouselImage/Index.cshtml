@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TechlistShop.Domain.Entities.DiscountCarouselImage>
+@{
+    ViewBag.Title = "عکس های کروسل تخفیف";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="fa fa-file-image-o fa-2x"></i> عکس های کروسل تخفیف :</h2>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>
+            عکس
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageLinkUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=> model.Description)
+        </th>
+        <th> 
+            @Html.DisplayNameFor(model=> model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=> model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.ImageData == null)
+            {
+                <img src="http://placehold.it/110x44" alt="@item.Caption">
+            }
+            else
+            {
+                <img style="width:110px;" src="@Url.Action("GetImage","DiscountCarouselImage", new{item.ImageId})" />   
+            }
+        </td>
+        <td>
+            @Html.ActionLink(item.Caption, "Details", new { imageId = item.ImageId })
+        </td>
+        <td>
+            @item.ImageLinkUrl
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+           @item.EndDate
+        </td>
+        <td>
+            @item.Active
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { imageId = item.ImageId })/
+            @Html.ActionLink("حذف", "Delete", new { imageId = item.ImageId })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p style="text-align:left;">
+    @Html.ActionLink("+ عکس جدید", "Create", null, new {@class = "btn btn-primary" })
+</p>

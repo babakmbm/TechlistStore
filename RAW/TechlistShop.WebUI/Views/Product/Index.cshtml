@@ -1,0 +1,213 @@
+﻿@model TechlistShop.WebUI.Models.ProductListViewModel
+@{
+    ViewBag.Title = "فروشگاه تک لیست | خرید آنلاین";
+}
+<style>
+    h1, h2, h3, h4, h5 {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* CONTENT */
+    .ProductFeature1:before, .ProductFeature1:after {
+        -webkit-box-sizing:initial;
+        -moz-box-sizing: initial;
+        box-sizing: initial; 
+    }
+    #content .info { padding:10px; }
+
+    /* Product POSTERS */
+    .ProductFeature1 
+    { 
+        list-style:none; 
+        margin:20px 0 100px 0; 
+        height:175px; 
+        cursor:cell;
+    }
+
+    .ProductFeature1 li 
+    { 
+        font-family: 'web_Yekan','B Koodak','X Koodak','Koodak',Arial;
+        display:inline; 
+        float:right;
+        margin-right: 5px;
+	    -webkit-perspective: 500; 
+        -webkit-transform-style: preserve-3d;
+	    -webkit-transition-property: perspective; 
+        -webkit-transition-duration: 0.5s; 
+    }
+    .ProductFeature1 li:hover 
+    { 
+        -webkit-perspective: 5000;
+    }
+	
+    .ProductFeature1 li img 
+    {
+        width: 156px; 
+        height:220px;
+        border:6px solid #fcfafa; 
+        -webkit-transform: rotateY(-30deg);
+	    -moz-box-shadow:0 3px 10px #888; 
+        -webkit-box-shadow:0 3px 10px #888;
+	    -webkit-transition-property: transform; 
+        -webkit-transition-duration: 0.5s; 
+    }
+    .ProductFeature1 li:hover img 
+    { 
+        -webkit-transform: rotateY(0deg); 
+    }
+
+    .Productinfo1 { 
+        opacity:1;
+        border: 6px solid #fff;
+        padding: 5px;
+        width: 135px;
+        height: 120px;
+        background-color: whitesmoke;
+        margin: -125px 17px 0 55px;
+        position: absolute;
+        -moz-box-shadow: 0 20px 40px #888;
+        -webkit-box-shadow: 0 20px 40px #888;
+        -webkit-transform: translateZ(30px) rotateY(-30deg);
+        -webkit-transition-property: transform, box-shadow, margin;
+        -webkit-transition-duration: 0.3s;
+    }
+	
+    .ProductFeature1 li:hover .Productinfo1 
+    { 
+        opacity:1;
+        -webkit-transform: rotateY(0deg); 
+        -webkit-box-shadow:0 5px 10px #888; 
+        margin:-100px 11px 0 31px; 
+    }
+	
+    .Productinfo1 H4 
+    { 
+        color:#7C2025; 
+        font-variant: small-caps; 
+        font-family:Georgia,serif,Times; 
+        font-weight:bold;
+        font-size:15px;
+        text-align:center; 
+        padding-bottom:15px; 
+    }
+    .Productinfo1 P 
+    { 
+        padding-bottom:0; 
+        font-size:0.8em;
+        font-weight:bold;
+        padding-right:10px;
+    }
+
+    .Productinfo1 P SPAN {
+        color:#62C2B1;
+    }
+    .Productinfo1 a { 
+        background-color: #46A649;
+        padding: 5px 5px;
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        width: 40px;
+        text-align: center;
+        margin-right:70px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px; }
+    .Productinfo1 a:hover, .Productinfo1 a:focus { background-color:#3276B1; color:#fff; }
+</style>
+
+@*------------------------------------------------------------------------------------------------------*@
+@section Adds{
+    @Html.Partial("_Adds")
+}
+
+@section Carousel{
+    @Html.Partial("_Carousel",Model)
+}
+
+<ul class="clearfix userServiceLinks">
+    <li>
+        <a href="#">
+            <img src="~/Content/Images/ShetabNetwork.png" />
+        </a>
+    </li>
+    <li style="border-right:1px solid #f3f3f3;">
+        <a href="#">
+            <img src="~/Content/Images/deliver2.png" />
+        </a>
+    </li>
+    <li style="border-right:1px solid #f3f3f3;">
+        <a href="#">
+            <img src="~/Content/Images/24-7.png" />
+        </a>
+    </li>
+    <li style="border-right:1px solid #f3f3f3;">
+        <a href="#">
+            <img src="~/Content/Images/CashOnDelivery.png" />
+        </a>
+    </li>
+</ul>
+@Html.Partial("_DiscountCarousel",Model)
+<div class="latestProducts">
+    <div class="title">
+        <div>
+            آخرین محصولات
+        </div>
+    </div>
+    <ul class="ProductFeature1">
+        @foreach (var p in Model.Products.Take(4))
+        {
+            @Html.Partial("_LatestProducts", p);
+        }
+    </ul>
+</div>
+
+<div class="latestCategories">
+    <ul class="ProductFeature1">
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="ProductFeature1">
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="title">
+                <div>
+                    آخرین محصولات
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

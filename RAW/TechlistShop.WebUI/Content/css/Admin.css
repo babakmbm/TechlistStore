@@ -1,0 +1,259 @@
+﻿@font-face 
+{
+    font-family: BNazanin;
+    src: url("/Content/Fonts/BNAZANIN.TTF")
+}
+
+@font-face 
+{
+    font-family: DastNevis;
+    src: url('/Content/Fonts/danstevis.ttf');
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    font-size:0.7em;
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*------------------------------------*/
+body {
+    /*font-family:BNazanin;*/
+    font-size:1.5em;
+    min-width:900px;
+}
+
+.table 
+{
+    font-family: 'web_Yekan','B Koodak','X Koodak','Koodak',Arial;
+    font-size:.8em;
+}
+
+#headerLine
+{
+    background-image:url(/Content/Images/download.png);
+    background-color:#191818;
+    margin:0;
+    padding:0;
+    padding:3px 0px;
+    color:#fff;
+    font-weight:bold;
+    /*font-family:BNazanin;*/
+    font-size:1.2em;
+    border-top: 2px groove #333;
+    border-bottom: 2px groove #333;
+}
+
+#headerLine a {
+    padding:5px 10px 5px 0;
+    color:whitesmoke;
+    text-decoration:none;
+}
+
+#headerLine a:hover {
+    color:red;
+}
+
+#headerLine .dropdown-menu 
+{
+    background-image:url(/Content/Images/download.png);
+}
+
+#headerLine .dropdown-menu li ul
+{
+    list-style:none;
+}
+
+#headerLine .dropdown-menu li ul li 
+{
+    width:120px;
+    padding: 5px 0;
+}
+
+#footer 
+{
+    background-image:url(/Content/Images/download.png);
+    background-color:#3C3C3C;
+    border-top:2px solid #111;
+    color:white;
+    height:200px;
+}
+
+.AdminLinks 
+{
+    background: whitesmoke;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 8px;
+    padding-top: 0;
+    width: 700px;
+}
+
+.AdminLinks img
+{
+    width:260px;
+    margin-bottom:40px;
+}
+
+.AdminLinks a 
+{
+    text-decoration:none;
+    color:#333;
+    -webkit-text-shadow: 0 1px 1px rgba(0,0,0,.075), 0 0 8px #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.075), 0 0 8px #fff;
+    -webkit-transition:0.3s all ease-in;
+}
+
+.AdminLinks a:hover 
+{
+    color:maroon;
+    text-shadow:1px 2px 2px rgba(0,0,0,0.6);
+    -webkit-transform:scale(1.2) rotate(360deg);
+}
+
+.OtherLinks 
+{
+    width:700px;
+}
+
+/* entire container, keeps perspective */
+.flip-container 
+{
+    margin:0 auto;
+    perspective: 1000;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper 
+{
+	transform: rotateY(180deg);
+    cursor:pointer;
+}
+
+.flip-container, .front, .back {
+	width: 140px;
+	height: 140px;
+}
+
+/* flip speed goes here */
+.flipper 
+{
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	position: relative;
+}
+
+.army .front, .army .back 
+{
+    background-color:rgba(112,109,60,.9);
+}
+
+.orange .front, .orange .back 
+{
+    background-color:rgba(230,85,39,.9);
+}
+
+.teal .front, .teal .back 
+{
+    background-color:rgba(55,165,179,.9);
+}
+
+.sky .front, .sky .back 
+{
+    background-color:rgba(74,173,186,.9);
+}
+
+/* hide back of pane during swap */
+.front, .back 
+{
+    box-shadow:rgba(0,0,0,0.9) -2px 2px 5px;
+	backface-visibility: hidden;
+	position: absolute;
+    border-radius:5px;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front 
+{
+	z-index: 2;
+	/* for firefox 31 */
+	-webkit-transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back 
+{
+	-webkit-transform: rotateY(180deg);
+}
+
+#container 
+{
+    margin:40px;
+    min-height:600px;
+}
+
+h2 
+{
+    font-family:DastNevis;
+}
+
+table 
+{
+    min-width:600px;
+    margin:30px 0;
+}
+
+tr td 
+{
+    font-weight:bold;
+    font-size:1em;
+}
+tr th 
+{
+    color:maroon;
+    font-size:1.2em;
+}
+
+.form-group 
+{
+    font-size:1.3em;font-weight:bold;
+}
+
+.form-group input 
+{
+    font-weight:bold;
+    width:40%;
+    min-width:500px;
+}
+
+.form-group textarea 
+{
+    font-weight:bold;
+    width:40%;
+    min-width:500px;
+    height:120px;
+}
+
+.btn
+{
+    font-weight:bold;
+}

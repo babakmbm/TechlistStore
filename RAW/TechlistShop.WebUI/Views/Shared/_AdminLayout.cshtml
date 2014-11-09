@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap-rtl.js"></script>
+    <link href="~/Content/css/bootstrap-rtl.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/Admin.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" media="all">
+    <link rel="SHORTCUT ICON" href="~/favicon (2).ico"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="headerLine" class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">خروج</a>
+            }
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+            @Html.Partial("_AdminMenuPartial")
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left">
+            <a href="~/Product/List"><i class="fa fa-laptop"></i> وبسایت</a> 
+        </div>
+    </div>
+    <div id="container">
+        <div style="font-weight:bold; font-size:1.2em;">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success" role="alert"><i class="fa fa-thumbs-up fa-md"></i> @TempData["message"]</div>
+            }
+
+            @if (TempData["error"] != null)
+            {
+                <div class="alert alert-danger" role="alert"><i class="fa fa-thumbs-down fa-md"></i> @TempData["message"]</div>
+            }
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+</html>

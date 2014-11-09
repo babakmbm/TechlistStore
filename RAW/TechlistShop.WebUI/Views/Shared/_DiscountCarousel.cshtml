@@ -1,0 +1,158 @@
+﻿@model TechlistShop.WebUI.Models.ProductListViewModel
+@{
+    var cr = 45;
+}
+<style>
+    #carousel-2 {
+        width: 710px;
+        height: 225px;
+        margin: 0 auto;
+        margin-bottom: 52px;
+    }
+
+    #carousel-2 .carousel-inner {
+        height:225px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    #carousel-2 .carousel-indicators {
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        height: 43px;
+        top: 225px;
+        width: 710px;
+        right: 0;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom:3px solid #fff;
+        text-align:right;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+        padding-right:0;
+    }
+
+    #carousel-2 .carousel-indicators li {
+        text-align:center;
+        border-radius: 0;
+        display: inline-block;
+        position:relative;
+        width: 100px; 
+        min-width:70px;
+        height: 43px;
+        padding:10px;
+        margin: 0; 
+        text-indent:0; 
+        border: 0;
+        border-radius: 0; 
+        cursor: pointer;
+        color:#666;
+    }
+
+    #carousel-2 .carousel-indicators li:hover {
+        background-color: #fff;
+        border-bottom: 3px solid #46A649;
+        color:#a5a5a5;
+    }
+
+    #carousel-2 .carousel-indicators .active {
+        margin: 0;
+        width: 100px; 
+        height:43px;
+        color:#a5a5a5;
+        background-color: #fff;
+        border-bottom: 3px solid #46A649;
+    }
+
+    #carousel-2 .carousel-indicators li:hover:before {
+        border-bottom:10px solid #45A549;
+        border-left:5px solid transparent;
+        border-right:5px solid transparent;
+        position:absolute;
+        bottom:-1px;
+        width:0;
+        height:0;
+        right:43px;
+        content:"";
+        display:block;
+    }
+
+    #carousel-2 .carousel-indicators .active:before {
+        border-bottom:10px solid #45A549;
+        border-left:5px solid transparent;
+        border-right:5px solid transparent;
+        position:absolute;
+        bottom:-1px;
+        display:block;
+        width:0;
+        height:0;
+        content:"";
+        display:block;
+        right:43px;
+    }
+
+    #carousel-2 .carousel-control.left, #carousel-2 .carousel-control.right {
+        background-image: none;
+    }
+
+    #carousel-2 .carousel-control .icon-prev, #carousel-2 .carousel-control .icon-next, #carousel-2 .carousel-control .fa-chevron-left, #carousel-2 .carousel-control .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        z-index: 5;
+        display: inline-block;
+        color: #fff;
+        display: none;
+    }
+
+    #carousel-2 .carousel-inner {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+</style>
+@*-----------------------------------------------------------------*@
+<div id="carousel-2" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @foreach(var c in Model.DiscountCarouselImages){
+            if (c.ImageData != null)
+            {
+                <li data-target="#carousel-2" data-slide-to="@(ViewBag.SlideToNumber++)">
+                    @c.Caption
+                </li>
+            }
+        }
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        @foreach(var c in Model.DiscountCarouselImages){
+        <div class="item">
+            <a href="@c.ImageLinkUrl">
+                @if (c.ImageData != null)
+                {
+                    <img style="width:710px; height:240px" src="@Url.Action("GetImage","DiscountCarouselImage", new{c.ImageId})" />
+                }
+            </a>
+            <div style="direction:ltr;">
+                @{
+                    cr=cr*4564 + 12;
+                    ViewBag.cr = cr;
+                    }
+                @Html.Partial("_CountDown",c)
+            </div>
+        </div>
+        }
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-2" role="button" data-slide="next">
+        <span class="fa fa-chevron-left fa-2x"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-2" role="button" data-slide="prev">
+        <span class="fa fa-chevron-right fa-2x"></span>
+    </a>
+</div>
+@* باید همین آخر باشه *@
+<script>
+    $("#carousel-2 .carousel-indicators li:first").addClass("active");
+    $("#carousel-2 .carousel-inner .item:first").addClass("active");
+</script>

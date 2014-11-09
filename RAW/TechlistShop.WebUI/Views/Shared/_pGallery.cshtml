@@ -1,0 +1,108 @@
+﻿<link href="~/Content/css/bootstrap-rtl.css" rel="stylesheet">
+<link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+<!-- CSS code from Bootply.com editor -->
+        
+<style type="text/css">
+    .carousel-control {
+      padding-top:0;
+      margin-top:-5px;
+      width:4%;
+      background:none;
+    }
+
+    .PPicScroller 
+    {
+        width:280px;
+    }
+    .PPicScroller .col-md-12 {
+        padding:0;
+        margin:-5px;
+    }
+
+    .PPicScroller .col-lg-3, .PPicScroller .col-md-3, .PPicScroller .col-sm-3, .PPicScroller .col-xs-3  {
+        width:22.5%;
+    }
+
+</style>
+<div class="container PPicScroller">
+    <div class="col-md-12">
+        <div id="myCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <!--/item-->
+                <div class="item">
+                    <div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <!--/item-->
+                <div class="item">
+                    <div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a href="#x"><img src="http://placehold.it/52x52" alt="Image"></a>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <!--/item-->
+            </div>
+            <!--/carousel-inner--> 
+            <a class="left carousel-control" style="background:none; font-size:40px; color:#000;" href="#myCarousel" data-slide="prev">›</a>
+            <a class="right carousel-control" style="background:none; font-size:40px; color:#000;" href="#myCarousel" data-slide="next">‹</a>
+        </div>
+        <!--/myCarousel-->
+    </div>
+</div>
+        
+<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: false
+        })
+
+        $('#myCarousel').on('slid.bs.carousel', function () {
+            //alert("slid");
+        });
+    });
+</script>
+        
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-40413119-1', 'bootply.com');
+    ga('send', 'pageview');
+</script>

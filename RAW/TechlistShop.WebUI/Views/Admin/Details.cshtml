@@ -1,0 +1,118 @@
+﻿@model TechlistShop.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .table tr td 
+    {
+        min-width:200px;
+    }
+</style>
+
+<table class="table table-bordered table-striped table-hover" style="width:700px;">
+    <tr>
+        <td colspan="2" style="color:#46A649; padding:25px; padding-right:10px;font-size:1.4em;">
+            جزئیات برای: "@Model.Name"
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Name):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Availability):
+        </td>
+        <td>
+            @if (Model.Availability)
+            {
+                <i class="glyphicon glyphicon-ok-sign" style="color:darkgreen;"></i> <span style="background-color:#555;color:#fff; border-radius:50px; padding:1px 5px;">موجود</span> 
+            }
+            else
+            {
+               <i class="glyphicon glyphicon-remove-sign" style="color:darkred;"></i> <span style="background-color:#555;color:#fff; border-radius:50px; padding:0 5px;">ناموجود</span> 
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Quantity):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Quantity) عدد
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Description):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Description)
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Price):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Price).ToString() ریال
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Category):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Category)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            عکس محصول:
+        </td>
+        <td>
+            @if (Model.ImageData == null)
+            {
+                @:عکسی برای این محصول وجود ندارد
+            }
+            else
+            {
+                <img width="150" src="@Url.Action("GetImage","Product", new{Model.ProductID})" />   
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            تاریخ ایجاد محصول:
+        </td>
+        <td>
+            @Model.DateAdded
+        </td>
+    </tr>
+</table>
+<p style="width:700px;">
+    @Html.ActionLink("ویرایش", "Edit", new { productId = Model.ProductID }, new {@class="btn btn-primary", style="width:200px; margin:10px; margin-right:0;"})
+    @Html.ActionLink("بازگشت به لیست", "ProductList", "admin", null, new {@class = "btn btn-danger" , style="width:200px; margin:10px; margin-right: 285px;margin-left: 0;" })
+</p>

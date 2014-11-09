@@ -1,0 +1,8 @@
+﻿@model TechlistShop.Domain.Entities.Cart
+
+<div id="cart">
+    <a href="~/Cart/Index" class="btn btn-primary">
+        <span class="cartQ">@Model.Items.Sum(x => x.Quantity)</span>
+        <span class="label">سبد خرید</span> <span class="fa fa-shopping-cart fa-2x"></span>
+    </a>
+</div> 

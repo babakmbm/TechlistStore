@@ -1,0 +1,40 @@
+﻿@if(User.IsInRole("Admins")){
+<div class="dropdown" style="display:inline;">
+    <a data-toggle="dropdown" href="#"><i class="fa fa-user fa-lg"></i> ادمین <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li style="text-align:center; border-bottom:groove 1px; padding-bottom:15px;"><a href="~/Admin"><i class="fa fa-lock"></i> صفحه ادمین</a></li>
+    <li>
+        <ul>
+            <li><a href="@Url.Content("~/Admin/ProductList")"><i class="fa fa-cubes"></i> محصولات</a></li>
+            <li><a href="@Url.Content("~/Admin/UserManagement")"><i class="fa fa-users"></i> کاربران</a></li>
+            <li><a href="#"><i class="fa fa-exchange"></i> تهیه کنندگان</a></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><a href="#"><i class="fa fa-truck"></i> حمل و نقل</a></li>
+            <li><a href="#"><i class="fa fa-user"></i> مشتریان</a></li>
+            <li><a href="#"><i class="fa fa-credit-card"></i> متدهای پرداخت</a></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><a href="#"><i class="fa fa-shopping-cart"></i> سفارشات</a></li>
+            <li><a href="#"><i class="fa fa-cloud-upload"></i> آپگرید</a></li>
+            <li><a href="#"><i class="fa fa-exclamation"></i> درباره</a></li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><a href="~/Add/index"><i class="fa fa-lock"></i> آگهی ها</a></li>
+            <li><a href="~/CarouselImage/Index"><i class="fa fa-lock"></i> کروسل</a></li>
+            <li><a href="~/Setting/Index"><i class="fa fa-cog"></i> تنظیمات نمایه</a></li>
+        </ul>
+    </li>
+    </ul>
+</div>
+}
+else
+{
+<a href="~/Admin/Index"><i class="fa fa-user"></i> ادمین</a>                
+}

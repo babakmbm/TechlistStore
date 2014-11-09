@@ -1,0 +1,77 @@
+﻿@model TechlistShop.Domain.Entities.Setting
+
+@{
+    ViewBag.Title = ViewBag.title;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Edit", "Setting", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+{
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.integritykeeper)
+        @Html.HiddenFor(model => model.SettingID)
+        @Html.HiddenFor(model => model.DateModified)
+    <table class="table-hover" style="font-size:10px; margin:0 auto;">
+        <tr>
+            <td colspan="2" style="padding:25px 10px; font-size:20px; color:#46A44A;">
+                <i class="fa fa-file-text-o fa-lg"></i> @ViewBag.title
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td style="padding:25px 10px;">
+                @Html.DisplayNameFor(model => model.MCNOPIC)
+            </td>
+            <td style="padding:25px 10px;">
+                @Html.TextBoxFor(model => model.MCNOPIC, new {@class="form-control", type = "number"  })
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td style="padding:25px 10px;">
+                @Html.DisplayNameFor(model => model.DISNOPIC)
+            </td>
+            <td style="padding:25px 10px;">
+                @Html.TextBoxFor(model => model.DISNOPIC, new {@class="form-control", type = "number"  })
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td style="padding:25px 10px;">
+                @Html.DisplayNameFor(model => model.NOA)
+            </td>
+            <td style="padding:25px 10px;">
+                @Html.TextBoxFor(model => model.NOA, new {@class="form-control", type = "number" })
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td style="padding:25px 10px;">
+                @Html.DisplayNameFor(model => model.LPS)
+            </td>
+            <td style="padding:25px 10px;">
+                @Html.TextBoxFor(model => model.LPS, new {@class="form-control", type = "number" })
+            </td>
+        </tr>
+        <tr class="form-group">
+            <td style="padding:25px 10px;">
+                @Html.DisplayNameFor(model => model.Description)
+            </td>
+            <td style="padding:25px 10px;">
+                @Html.TextAreaFor(model => model.Description, new {cols = "35", rows="10", @class="form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td class="text-left" style="padding:25px 10px;">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> ذخیره در پایگاه داده</button><br /><br />
+                @Html.ActionLink("بازگشت به لیست", "Index", "Setting",null, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    </table>
+    <br />
+}
+<div>
+    
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

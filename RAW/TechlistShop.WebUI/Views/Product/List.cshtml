@@ -1,0 +1,30 @@
+﻿@model TechlistShop.WebUI.Models.ProductListViewModel
+
+@{
+    ViewBag.Title = "فروشگاه تک لیست | لیست محصولات" + " | " + Model.CurrentCategory;
+}
+
+@section Carousel{
+    @Html.Partial("_Carousel",Model)
+}
+
+@section Adds{
+    @Html.Partial("_Adds")
+}
+
+<div class="ListItemContainer">
+    @foreach (var p in Model.Products)
+    {
+        @Html.Partial("ProductSummary", p);
+    }
+</div>
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {PageNumber = x, category = Model.CurrentCategory}))
+</div>
+
+<p>
+    @if(User.IsInRole("Admins")){
+        @Html.ActionLink("محصول جدید فقط برای ادمین", "Create", "Admin", null, new {@class = "btn btn-block btn-danger" })
+    }
+</p>

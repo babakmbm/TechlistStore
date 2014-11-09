@@ -1,0 +1,34 @@
+﻿@model TechlistShop.Domain.Entities.DiscountCarouselImage
+@{
+    Random rnd = new Random();
+    int c = rnd.Next(Model.EndDate.Second, Model.EndDate.Year * Model.EndDate.Minute) * ViewBag.cr;
+}
+@*-----------------------------------------------------------------*@
+<ul class="countdown c-@c">
+    <li> <span class="days">00</span>
+        <p class="days_ref">روز</p>
+    </li>
+    <li class="seperator">.</li>
+    <li> <span class="hours">00</span>
+        <p class="hours_ref">ساعت</p>
+    </li>
+    <li class="seperator">:</li>
+    <li> <span class="minutes">00</span>
+        <p class="minutes_ref">دقیقه</p>
+    </li>
+    <li class="seperator">:</li>
+    <li> <span class="seconds">00</span>
+        <p class="seconds_ref">ثانیه</p>
+    </li>
+</ul>
+
+<script type="text/javascript" src="~/Scripts/jquery.downCount.js"></script> 
+<script type="text/javascript">
+        $(".c-@c").downCount({
+            date: "@Model.EndDate.Month/@Model.EndDate.Day/@Model.EndDate.Year @Model.EndDate.Hour:@Model.EndDate.Minute:@Model.EndDate.Second",
+            offset: +10
+        }, function () {
+            alert("فرصت برای خرید @Model.Caption به پایان رسید.");
+            location.reload();
+        });
+</script> 

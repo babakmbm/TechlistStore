@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap-rtl.js"></script>
+    <script src="~/Scripts/carousel-rtl.js"></script>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/bootstrap-rtl.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/css/Site.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css" type="text/css" media="all">
+    <link rel="SHORTCUT ICON" href="~/favicon (2).ico"/>
+</head>
+<body>
+    <div id="headerLine">
+        <div class="headerLineContainer">
+            <div>
+                @Html.Partial("_LoginPartial")
+            </div>        
+        </div>
+    </div>
+
+    <article id="header" class="row">
+        <div class="headerContainer conainer">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+                @{Html.RenderAction("Summary", "Cart");}
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                @using (Html.BeginForm("Search", "Product", FormMethod.Post, new { role = "form", id = "searchBox" }))
+                {
+                    <input type="text" class="form-control" id="inputSuccess5" name="q" placeholder="محصول، دسته یا برند مورد نظرتان را جستجو کنید ...">
+                    <button type="submit" class="btn btn-defualt">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                }
+            </div>
+            <div id="logo" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center img-responsive">
+                <a href="~/"><img src="/Content/Images/logo.png" /></a>
+            </div>
+        </div>
+    </article>
+
+    <article class="mainContainer container clearfix">
+        <nav id="FastLinks">
+
+        </nav>
+        
+        <aside class="sidebar">
+            @Html.Partial("_CategoriesPartial")
+            @RenderSection("Adds", false)
+            @Html.Partial("_LatestNews")
+            @Html.Partial("_LatestVideos")
+            @Html.Partial("_ENamad")
+        </aside>
+
+        <article id="content">
+            @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-success" role="alert"><i class="fa fa-thumbs-up fa-md"></i> @TempData["message"]</div>
+                }
+            @RenderSection("Carousel",false)
+            @RenderBody()
+        </article>
+    </article>
+    <article id="footer"></article>
+</body>
+</html>

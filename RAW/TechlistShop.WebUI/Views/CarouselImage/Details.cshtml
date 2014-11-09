@@ -1,0 +1,61 @@
+﻿@model TechlistShop.Domain.Entities.CarouselImage
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered table-striped table-hover" style="min-width:80%;">
+    <tr>
+        <td colspan="2">
+            جزئیات برای: "@Model.Caption"
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Caption):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Caption)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.ImageLinkUrl):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ImageLinkUrl)
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Description):
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Description)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            عکس:
+        </td>
+        <td>
+            @if (Model.ImageData == null)
+            {
+                @:عکسی وجود ندارد
+                <br />
+                <img src="http://placehold.it/310x114" alt="@Model.Caption">
+            }
+            else
+            {
+                <img width="410" height:"60" src="@Url.Action("GetImage","CarouselImage", new { Model.ImageId })" />   
+            }
+        </td>
+    </tr>
+</table>
+<p style="text-align:left;">
+    @Html.ActionLink("ویرایش", "Edit", new { imageId = Model.ImageId }, new {@class="btn btn-primary", style="width:200px; margin:10px;"})
+    @Html.ActionLink("بازگشت به لیست", "Index", "CarouselImage", null, new {@class = "btn btn-danger" , style="width:200px; margin:10px;" })
+</p>

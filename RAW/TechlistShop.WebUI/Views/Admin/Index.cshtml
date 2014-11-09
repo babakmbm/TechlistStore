@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "قسمت ادمین - صفحه اول";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container AdminLinks">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <img src="~/Content/Images/logo.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/ProductList")">
+                <i class="fa fa-cubes fa-2x"></i>
+                <div>محصولات</div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/UserManagement")">
+                <i class="fa fa-users fa-2x"></i>
+                <p>مدیریت کاربران</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/Suppliers")">
+                <i class="fa fa-exchange fa-2x"></i>
+                <p>تهیه کنندگان</p>
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/Shippers")">
+                <i class="fa fa-truck fa-2x"></i>
+                <p>حمل و نقل</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/Customers")">
+                <i class="fa fa-user fa-2x"></i>
+                <p>مشتریان</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/PaymentMethods")">
+                <i class="fa fa-credit-card fa-2x"></i>
+                <p>متد های پرداخت</p>
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/Orders")">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                <p>سفارشات</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/Upgrade")">
+                <i class="fa fa-cloud-upload fa-2x"></i>
+                <p>آپگرید</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/CarouselImage/Index")">
+                <i class="fa fa-photo fa-2x"></i>
+                <p>کروسل</p>
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Add/Index")">
+                <i class="fa fa-file-o fa-2x"></i>
+                <p>آگهی ها</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Admin/PaymentMethods")">
+                <i class="fa fa-exclamation-triangle fa-2x"></i>
+                <p>درباره برنامه</p>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+            <a href="@Url.Content("~/Setting/Index")">
+                <i class="fa fa-cog fa-2x"></i>
+                <p>تنظیمات نمایه</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="container OtherLinks">
+    <div class="row">
+        <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            <div class="flip-container sky" ontouchstart="this.classList.toggle('hover');">
+	            <div class="flipper">
+		            <div class="front" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این جلوشه
+		            </div>
+		            <div class="back" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این پشتشه
+		            </div>
+	            </div>
+            </div>
+        </div>
+        
+        <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            <div class="flip-container army" ontouchstart="this.classList.toggle('hover');">
+	            <div class="flipper">
+		            <div class="front" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این جلوشه
+		            </div>
+		            <div class="back" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این پشتشه
+		            </div>
+	            </div>
+            </div>
+        </div>
+        <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            <div class="flip-container teal" ontouchstart="this.classList.toggle('hover');">
+	            <div class="flipper">
+		            <div class="front" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این جلوشه
+		            </div>
+		            <div class="back" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این پشتشه
+		            </div>
+	            </div>
+            </div>
+        </div>
+        <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            <div class="flip-container orange" ontouchstart="this.classList.toggle('hover');">
+	            <div class="flipper">
+		            <div class="front" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این جلوشه
+		            </div>
+		            <div class="back" style="padding-top:56px; color:white; text-shadow:2px 2px 2px #000;">
+			            این پشتشه
+		            </div>
+	            </div>
+            </div>
+        </div>
+    </div>
+</div>

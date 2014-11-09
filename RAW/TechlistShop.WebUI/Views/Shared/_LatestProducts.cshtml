@@ -1,0 +1,21 @@
+﻿@model TechlistShop.Domain.Entities.Product
+@{
+    var Max = 500;
+}
+<li>
+    @if (Model.ImageData != null)
+    {
+        <img src="@Url.Action("GetImage","Product", new{Model.ProductID})" alt="@Model.Name" />
+    }
+    else
+    {
+        <img class="img-rounded" width="150" height="120" src="~/Content/Images/No Image.png" />
+    }
+    <div class="Productinfo1">
+        <h4>@Model.Name</h4>
+        <p><span>دسته بندی:</span> @Model.Category</p>
+        <a href="~/Product/Details?productID=@Model.ProductID" title="@Model.Name">
+            +<i class="glyphicon glyphicon-shopping-cart"></i>
+        </a>
+    </div>
+</li>

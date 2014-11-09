@@ -1,0 +1,26 @@
+﻿<style>
+    .titleHeader {
+    padding: 10px 2px 6px 0;
+    width: 100px;
+    font-weight: bold;
+    border-bottom: 2.8px solid #EA4E4D;
+    }
+</style>
+@model IEnumerable<string>
+
+<div class="titleHeader">
+    دسته بندی ها
+</div>
+
+@foreach (var link in Model)
+{
+    @Html.RouteLink(link, new
+    {
+        Controller = "Product",
+        action = "List",
+        category = link,
+        pageNumber = 1
+    },
+    new { @class = link == ViewBag.SelectedCategory ? "selected" : null })
+}
+<br />

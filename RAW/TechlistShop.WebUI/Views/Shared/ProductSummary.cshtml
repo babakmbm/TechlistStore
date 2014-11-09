@@ -1,0 +1,65 @@
+﻿@model TechlistShop.Domain.Entities.Product
+
+<div class="ListItem">
+    @if (Model.ImageData != null && Model.Category != "فیلم")
+    {
+        <div style="float:right; margin-left:20px; box-shadow: 0 1px 3px rgba(0,0,0,.2);border:8px solid #F7F7F7;">
+            <img width="150" height="150" src="@Url.Action("GetImage","Product", new{Model.ProductID})" alt="@Model.Name" />
+        </div>
+    }
+    else if(Model.Category == "فیلم")
+    {
+        <div class="movie" style="float:right; margin-left:20px;">
+            <img width="110" height="150" style="box-shadow: 0 1px 3px rgba(0,0,0,.2);" src="@Url.Action("GetImage","Product", new{Model.ProductID})" alt="@Model.Name" />
+            <div class="screenShots clearfix">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+            </div>
+        </div>    
+    }
+    else
+    {
+        <div style="float:right; margin-left:20px; box-shadow: 0 1px 3px rgba(0,0,0,.2);">
+            <img width="110" height="150" src="~/Content/Images/No Image.png" />
+        </div>    
+    }
+
+    <h3>@Html.ActionLink(Model.Name,"Details",new{Model.ProductID})</h3>
+    <p style="text-align:justify;">
+        @Model.Description
+    </p>
+    <br />
+    <h4>قیمت: @Model.Price ریال</h4>
+    <div style="font-weight:bold;">
+        @if (Model.Availability)
+            {
+                <i class="glyphicon glyphicon-ok-sign" style="color:#69A816;"></i> <text>موجود</text> 
+            }
+            else
+            {
+               <i class="glyphicon glyphicon-remove-sign" style="color:darkred;"></i> <text>ناموجود</text> 
+            }
+    </div>
+    <br />
+    <div style="text-align:left;">
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            @Html.HiddenFor(x=>x.ProductID)
+
+            @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+            if(Model.Availability != true || Model.Quantity <= 0){
+                <button type="submit" class="btn btn-default" disabled="disabled">
+                    <i class="fa fa-plus"></i> <b>اضافه کردن به سبد خرید</b>
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-plus"></i> <b>اضافه کردن به سبد خرید</b>
+                </button>
+            }
+        }
+    </div>
+</div>
